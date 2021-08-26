@@ -9,6 +9,8 @@
     height: 180px;
     border-radius: 10px;
     overflow: hidden;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .CartItem-image img{

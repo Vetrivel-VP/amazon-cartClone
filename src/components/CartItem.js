@@ -1,22 +1,19 @@
 import React from "react";
 import "../css/CartItem.css";
 
-function CartItem() {
+function CartItem({ value }) {
   return (
     <div className="CartItem">
       <div className="CartItem-image">
-        <img
-          src="https://assets.swappie.com/swappie-product-iphone-11-black.png"
-          alt=""
-        />
+        <img src={process.env.PUBLIC_URL + "/items/" + value.image} alt="" />
       </div>
       <div className="CartItem-info">
         <div className="info-title">
-          <h2>Apple iPhone 11</h2>
-          <div className="info-stock">In-Stock</div>
+          <h2>{value.title}</h2>
+          <div className="info-stock">{value.stock}</div>
           <div className="item-actions">
             <div className="item-quantity">
-              <select>
+              <select value={value.quantity}>
                 <option value="1">Qty:1</option>
                 <option value="2">Qty:2</option>
                 <option value="3">Qty:3</option>
@@ -27,7 +24,7 @@ function CartItem() {
           </div>
         </div>
       </div>
-      <div className="CartItem-price">$799.00</div>
+      <div className="CartItem-price">{value.price}</div>
     </div>
   );
 }

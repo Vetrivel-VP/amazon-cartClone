@@ -8,7 +8,9 @@ function CartItems({ items }) {
     <div className="CartItems">
       <h1>Shopping Cart</h1>
       <hr />
-      <CartItem />
+      {items.map((item, index) => (
+        <CartItem key={index} value={item} />
+      ))}
     </div>
   );
 }
