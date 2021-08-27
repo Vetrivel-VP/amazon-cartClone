@@ -8,7 +8,7 @@ function AppMain() {
   const [cartItems, setCartItems] = useState(data);
   return (
     <div className="App-main">
-      <CartItems items={cartItems} />
+      <CartItems items={cartItems} setCartItems={setCartItems} />
       <CartTotal items={cartItems} />
     </div>
   );
