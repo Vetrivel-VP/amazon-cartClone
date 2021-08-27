@@ -24,7 +24,7 @@ function CartItem({ value }) {
           </div>
         </div>
       </div>
-      <div className="CartItem-price">{value.price}</div>
+      <div className="CartItem-price">${value.price}</div>
     </div>
   );
 }
