@@ -1,12 +1,38 @@
 import React from "react";
 import "../css/CartTotal.css";
+import NumberFormat from "react-number-format";
 
-function CartTotal() {
+function CartTotal({ items }) {
+  const getTotalPrice = () => {
+    let total_price = 0;
+    items.forEach((item) => {
+      total_price += item.quantity * item.price;
+    });
+    return total_price;
+  };
+
+  const getTotalItem = () => {
+    let totalItem = 0;
+    items.forEach((item) => {
+      totalItem += item.quantity;
+    });
+    return totalItem;
+  };
+
   return (
     <div className="CartTotal">
       <h3>
-        Subtotal(5 items):
-        <span className="CartTotal-price">$2,172.38</span>
+        Subtotal({getTotalItem()} items):
+        <span className="CartTotal-price">
+          <NumberFormat
+            value={getTotalPrice()}
+            displayType={"text"}
+            thousandSeparator={true}
+            decimalScale="2"
+            prefix={"$"}
+          />
+          ;
+        </span>
       </h3>
       <button className="CartTotal-button">Processd to checkout</button>
     </div>
