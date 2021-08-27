@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/CartItem.css";
 
-function CartItem({ index, value, changeItemQuantity }) {
+function CartItem({ index, value, changeItemQuantity, deletItem }) {
   return (
     <div className="CartItem">
       <div className="CartItem-image">
@@ -26,7 +26,9 @@ function CartItem({ index, value, changeItemQuantity }) {
               </select>
             </div>
             <div className="item-action-divider">|</div>
-            <div className="item-delete">Delete</div>
+            <div className="item-delete" onClick={deletItem.bind(this, index)}>
+              Delete
+            </div>
           </div>
         </div>
       </div>

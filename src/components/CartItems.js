@@ -4,10 +4,16 @@ import CartItem from "./CartItem";
 
 function CartItems({ items, setCartItems }) {
   const changeItemQuantity = (e, index) => {
-    console.log(index, e.target.value);
     // Do not update the STATE without the setter funciton
     const newItems = [...items];
     newItems[index].quantity = e.target.value;
+    setCartItems(newItems);
+  };
+
+  const deletItem = (index) => {
+    const newItems = items.filter((value, i) => {
+      return i !== index;
+    });
     setCartItems(newItems);
   };
 
@@ -21,6 +27,7 @@ function CartItems({ items, setCartItems }) {
           key={index}
           value={item}
           changeItemQuantity={changeItemQuantity}
+          deletItem={deletItem}
         />
       ))}
     </div>
