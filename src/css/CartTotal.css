@@ -3,6 +3,7 @@
   background: white;
   text-align: left;
   padding: 20px;
+  min-width: 250px;
 }
 
 .CartTotal-price {
